@@ -1,0 +1,17 @@
+name: project-list
+type: table
+path: project-list.csv
+scheme: file
+format: csv
+mediatype: text/csv
+encoding: utf-8
+schema:
+  fields:
+    - name: name
+      type: string
+    - name: url
+      type: string
+    - name: status
+      type: string
+    - name: languages
+      type: string
