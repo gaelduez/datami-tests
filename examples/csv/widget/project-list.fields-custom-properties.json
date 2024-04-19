@@ -11,31 +11,10 @@
       "subtype": "link"
     },
     {
-      "name": "status",
-      "subtype": "tag"
+      "name": "status"
     },
     {
-      "name": "languages",
-      "subtype": "tags",
-      "definitions": [
-        {
-          "value": "rust",
-          "label": "Rust label",
-          "description": "Rust description"
-        },
-        {
-          "value": "python",
-          "label": "Python label"
-        },
-        {
-          "value": "docker",
-          "label": "Docker"
-
-        }
-      ],
-      "tagSeparator": ",",
-      "allowNew": true,
-      "bgColor": "green"
+      "name": "languages"
     }
    
 
