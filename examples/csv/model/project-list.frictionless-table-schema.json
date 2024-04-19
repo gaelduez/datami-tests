@@ -16,7 +16,14 @@
       "name": "status",
       "title": "Project status",
       "description": "This is the status",
-      "type": "string"
+      "type": "string",
+      "constraints": {
+        "enum": [
+          "started",
+          "ready",
+          "unknown"
+        ]
+      }
     },
     {
       "name": "languages",
