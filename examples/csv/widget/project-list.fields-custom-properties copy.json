@@ -1,0 +1,44 @@
+{
+  "fields": [
+    {
+      "name": "name",
+      "sticky": true,
+      "primaryKey": true,
+      "maxLength": 50
+    },
+    {
+      "name": "url",
+      "subtype": "link"
+    },
+    {
+      "name": "status",
+      "subtype": "tag"
+    },
+    {
+      "name": "languages",
+      "subtype": "tags",
+      "definitions": [
+        {
+          "value": "rust",
+          "label": "Rust label",
+          "description": "Rust description"
+        },
+        {
+          "value": "python",
+          "label": "Python label"
+        },
+        {
+          "value": "docker",
+          "label": "Docker"
+
+        }
+      ],
+      "tagSeparator": ",",
+      "allowNew": true,
+      "bgColor": "green"
+    }
+   
+
+  ]
+}
+    
