@@ -15,7 +15,8 @@
       "subtype": "tag"
     },
     {
-      "name": "languages"
+      "name": "languages",
+      "subtype": "tags"
     }
    
 
