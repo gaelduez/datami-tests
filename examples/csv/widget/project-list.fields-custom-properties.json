@@ -1,0 +1,25 @@
+{
+  "fields": [
+    {
+      "name": "name",
+      "sticky": true,
+      "primaryKey": true,
+      "maxLength": 50
+    },
+    {
+      "name": "url",
+      "subtype": "link"
+    },
+    {
+      "name": "status",
+      "maxLength": 50
+    },
+    {
+      "name": "language",
+      "subtype": "tags",
+      "tagSeparator": ",",
+      "bgColor": "green"
+    }
+  ]
+}
+    
