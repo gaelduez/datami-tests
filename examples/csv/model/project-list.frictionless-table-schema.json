@@ -28,7 +28,8 @@
         "enum": [
           "rust",
           "python",
-          "docker"
+          "docker",
+          "other tek"
         ]
       }
     }
