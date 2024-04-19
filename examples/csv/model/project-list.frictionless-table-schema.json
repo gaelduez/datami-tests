@@ -12,7 +12,6 @@
     },
     {
       "name": "status",
-      "title": "Project status",
       "type": "string",
       "constraints": {
         "enum": [
@@ -24,8 +23,14 @@
     },
     {
       "name": "languages",
-      "title": "Project languages",
-      "type": "string"
+      "type": "string",
+      "constraints": {
+        "enum": [
+          "rust",
+          "python",
+          "docker"
+        ]
+      }
     }
   ]
 }

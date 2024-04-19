@@ -12,7 +12,8 @@
     },
     {
       "name": "status",
-      "subtype": "tag"
+      "subtype": "tags",
+      "tagSeparator": ","
     },
     {
       "name": "languages",
