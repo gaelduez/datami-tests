@@ -17,9 +17,27 @@
     {
       "name": "languages",
       "subtype": "tags",
+      "definitions": [
+        {
+          "value": "Rust",
+          "label": "Rust label",
+          "description": "Rust description"
+        },
+        {
+          "value": "Python",
+          "label": "Python label"
+        },
+        {
+          "value": "Docker",
+          "label": "Docker"
+
+        }
+      ],
       "tagSeparator": ",",
       "bgColor": "green"
     }
+   
+
   ]
 }
     
