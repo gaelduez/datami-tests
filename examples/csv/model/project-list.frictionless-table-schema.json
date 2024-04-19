@@ -3,25 +3,28 @@
     {
       "name": "name",
       "title": "the projet name",
-      "description": "A long description to explicit what is a name",
       "type": "string"
     },
     {
       "name": "url",
       "title": "the project url",
-      "description": "How to describe an URL.",
       "type": "string"
     },
     {
       "name": "status",
       "title": "Project status",
-      "description": "This is the status",
-      "type": "string"
+      "type": "string",
+      "constraints": {
+        "enum": [
+          "started",
+          "ready",
+          "unknown"
+        ]
+      }
     },
     {
       "name": "languages",
       "title": "Project languages",
-      "description": "A description of what is project languages",
       "type": "string"
     }
   ]
