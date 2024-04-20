@@ -16,6 +16,9 @@ The approach of Datami component is
 2. offer a html widget to visualize or edit content of the file for users who may not want to use Github directly
 3. automate the push of modifications to the data done via the widget as Github pull requests
 
+![datami component](datami-components.excalidraw.png)
+
+
 ## content
 
 - examples/csv/data: data files and related resources files to validate in CI
