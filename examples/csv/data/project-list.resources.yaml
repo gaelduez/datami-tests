@@ -20,4 +20,5 @@ schema:
         - unknown
     - name: languages
       type: string
-      pattern: ^(rust|python|docker|other\ tech)?(\|(rust|python|docker|other\ tech))*$
+      constraints:
+        pattern: ^(rust|python|docker|other\ tek)?(\|(rust|python|docker|other\ tek))*$
