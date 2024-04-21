@@ -13,5 +13,11 @@ schema:
       type: string
     - name: status
       type: string
+      constraints:
+        enum:
+        - started
+        - ready
+        - unknown
     - name: languages
       type: string
+      pattern: ^(rust|python|docker|other\ tech)?(\|(rust|python|docker|other\ tech))*$
