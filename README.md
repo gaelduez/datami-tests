@@ -35,6 +35,14 @@ pip install "frictionless[excel,json]" --pre
 
 ### Validate data
 
+Example with a file that contains invalid / not authorized values.
+
+Line 3 of data contains a value `csharp` which is not in the pattern of authorized values  (see project-list.resources.yaml) where the pattern or allowed values / types are defined.
+
+```csv
+Boaviztapi,https://github.com/Boavizta/,ready,csharp
+```
+
 ```sh
 cd examples/csv/data
 frictionless validate project-list.resources.yaml
@@ -56,6 +64,23 @@ frictionless validate project-list.resources.yaml
 │     │       │                  │ tek)?(\|(rust|python|docker|other\ tek))*$"                                         │
 └─────┴───────┴──────────────────┴─────────────────────────────────────────────────────────────────────────────────────┘
 
+```
+
+After fixing the data file (replace the `csharp` value by `python|docker`).
+
+```csv
+Boaviztapi,https://github.com/Boavizta/,ready,python|docker
+```
+
+```sh
+frictionless validate project-list.resources.yaml
+─────────────────────────────────────────────────────── Dataset ────────────────────────────────────────────────────────
+                      dataset
+┏━━━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃ name         ┃ type  ┃ path             ┃ status ┃
+┡━━━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ project-list │ table │ project-list.csv │ VALID  │
+└──────────────┴───────┴──────────────────┴────────┘
 ```
 
 ## Validate a data file in CI
