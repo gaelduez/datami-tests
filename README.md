@@ -21,9 +21,15 @@ The approach of Datami component is
 ## content
 
 - examples/csv/data: data files and related resources files to validate in CI
-- examples/csv/model: model for the csv data
-- .github/workflows: actions to automate validation
+  - data (csv file):[project-list.csv](https://github.com/demeringo/datami-tests/blob/main/examples/csv/data/project-list.csv)
+  - definition (model file) for data validation (CLI or CI) [project-list.resources.yaml](https://github.com/demeringo/datami-tests/blob/main/examples/csv/data/project-list.resources.yaml)
+- examples/csv/model: model for the csv data (be used by the widget)
+  - Table schema [project-list.frictionless-table-schema.json](https://github.com/demeringo/datami-tests/blob/main/examples/csv/model/project-list.frictionless-table-schema.json)
 - example/csv/widget: widget and widget configuration examples
+  - configuration file for the widget: [project-list.fields-custom-properties.json](https://github.com/demeringo/datami-tests/blob/main/examples/csv/widget/project-list.fields-custom-properties.json)
+  - configured widget:[project-list-widget.html](https://github.com/demeringo/datami-tests/blob/main/examples/csv/widget/project-list-widget.html)
+- .github/workflows: actions to automate validation
+  - Example github action that validates data file on pull request [validate-sample-data.yml](https://github.com/demeringo/datami-tests/blob/main/.github/workflows/validate-sample-data.yml) 
 
 ## Validating a data file locally
 
