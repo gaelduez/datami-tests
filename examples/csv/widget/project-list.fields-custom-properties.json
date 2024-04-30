@@ -18,9 +18,11 @@
       "name": "languages",
       "subtype": "tags",
       "tagSeparator": "|"
+    },
+    {
+      "name": "comment",
+      "subtype": "longstring"
     }
-   
-
   ]
 }
     
