@@ -22,3 +22,6 @@ schema:
       type: string
       constraints:
         pattern: ^(rust|python|docker|other\ tek)?(\|(rust|python|docker|other\ tek))*$
+    - name: comment
+      type: string
+    

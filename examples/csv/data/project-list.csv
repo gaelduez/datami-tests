@@ -1,3 +1,5 @@
-name,url,status,languages
-Scaphandre,https://github.com/hubblo-org/scaphandre,started,rust|docker|other tek
-Boaviztapi,https://github.com/Boavizta/,ready,python|docker
+name,url,status,languages,comment
+Scaphandre,https://github.com/hubblo-org/scaphandre,started,rust|docker|other tek,"A multi
+line comment: line 1
+line2"
+Boaviztapi,https://github.com/Boavizta/,ready,python|docker,simple comment
