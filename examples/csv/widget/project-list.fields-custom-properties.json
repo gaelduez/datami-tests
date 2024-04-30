@@ -27,6 +27,11 @@
         "breakSeparator": "//",
         "bulletSeparator": "- "
       }
+    },
+    {
+      "name": "review",
+      "subtype": "longtext",
+      "maxLength": 250
     }
   ]
 }

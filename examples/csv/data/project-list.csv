@@ -1,5 +1,3 @@
-name,url,status,languages,comment
-Scaphandre,https://github.com/hubblo-org/scaphandre,started,rust|docker|other tek,"A multi
-line comment: line 1
-line2"
-Boaviztapi,https://github.com/Boavizta/,ready,python|docker,simple comment
+name,url,status,languages,comment,review
+Scaphandre,https://github.com/hubblo-org/scaphandre,started,rust|docker|other tek,,"a review"
+Boaviztapi,https://github.com/Boavizta/,ready,python|docker,a simple comment,another review
