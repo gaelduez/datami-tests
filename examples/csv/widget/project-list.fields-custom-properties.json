@@ -21,7 +21,7 @@
     },
     {
       "name": "comment",
-      "subtype": "longstring"
+      "subtype": "longtext"
     }
   ]
 }
