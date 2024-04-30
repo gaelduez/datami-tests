@@ -21,7 +21,12 @@
     },
     {
       "name": "comment",
-      "subtype": "longtext"
+      "subtype": "longtext",
+      "maxLength": 250,
+      "longtextOptions": {
+        "breakSeparator": "//",
+        "bulletSeparator": "- "
+      }
     }
   ]
 }
