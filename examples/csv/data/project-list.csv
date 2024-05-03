@@ -1,5 +1,5 @@
 name,url,status,languages,comment,review,complex_tags_values
 Scaphandre,https://github.com/hubblo-org/scaphandre,started,rust+docker+other tek,this one is//multi//line//with separators,a review,
 Boaviztapi,https://github.com/Boavizta/,ready,python+docker,a simple comment,another review,Information System | Global Inventory+CPU - RAM - I/O Capacity+Request (http)
-Other,,ready,,,,Open-Source (Apache 2.0)
-Other,,ready,,,,Open-Source (Apache 2.0)+Closed Source / Commercial
+Other,https://github.com/Boavizta/,ready,,,,Open-Source (Apache 2.0)
+Other2,https://github.com/Boavizta/,ready,,,,Open-Source (Apache 2.0)+Closed Source / Commercial
