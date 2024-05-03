@@ -2,6 +2,18 @@
 
 Testing Datami widget to edit and validate CSV files [https://datami.multi.coop/](https://datami.multi.coop/).
 
+
+- [datami-tests](#datami-tests)
+  - [purpose](#purpose)
+  - [content](#content)
+  - [Validating the CSV file](#validating-the-csv-file)
+    - [Validating a data file locally (CLI)](#validating-a-data-file-locally-cli)
+      - [Install frictionless package](#install-frictionless-package)
+      - [Validate data](#validate-data)
+    - [Validate a data file in CI (github action)](#validate-a-data-file-in-ci-github-action)
+  - [References](#references)
+
+
 ## purpose
 
 Demonstrate and document how we can use Datami and other components to:
@@ -10,7 +22,7 @@ Demonstrate and document how we can use Datami and other components to:
 - constraint the display of fields in the Datami widget
 - investigate how we can use github actions to ensure that the csv file structure and or content is valid according to a model.
 
-The approach of Datami component is 
+The approach of Datami component is: 
 
 1. to rely on Github to store the CSV file
 2. offer a html widget to visualize or edit content of the file for users who may not want to use Github directly
@@ -31,15 +43,28 @@ The approach of Datami component is
 - .github/workflows: actions to automate validation
   - Example github action that validates data file on pull request [validate-sample-data.yml](https://github.com/demeringo/datami-tests/blob/main/.github/workflows/validate-sample-data.yml) 
 
-## Validating a data file locally
+## Validating the CSV file
 
-### Install frictionless package
+> [!INFO]
+> This validation is unrelated to Datami or the use of the widget.
+
+The Goal here is to be able to validate that the CSV file is consistent with the data model.
+
+The model describing the file is [project-list.resources.yaml](https://github.com/demeringo/datami-tests/blob/main/examples/csv/data/project-list.resources.yaml).
+
+We can validate the file in CLI (local mode) or / and as a github action.
+
+The output of the validation is easier (more direct) to read and analyse in local mode. But the github action still provides a report file that can be downloaded if validation fails.
+
+### Validating a data file locally (CLI)
+
+#### Install frictionless package
 
 ```sh
 pip install "frictionless[excel,json]" --pre
 ```
 
-### Validate data
+#### Validate data
 
 Example with a file that contains invalid / not authorized values.
 
@@ -89,7 +114,7 @@ frictionless validate project-list.resources.yaml
 └──────────────┴───────┴──────────────────┴────────┘
 ```
 
-## Validate a data file in CI
+### Validate a data file in CI (github action)
 
 See sample github action (`.github/workflows/validate-sample-data.yml`)
 
