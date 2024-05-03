@@ -7,23 +7,51 @@ mediatype : text/csv
 encoding: utf-8
 schema:
   fields:
+    # This name field will be used for a very good readon
     - name: name
       type: string
+    # This URL should point to the main project website
     - name: url
       type: string
+    # Status of the project
     - name: status
       type: string
+      # Status is a single value (and only one the enum below)
       constraints:
         enum:
         - started
         - ready
         - unknown
+    # Languages used by the project
     - name: languages
       type: string
+      #
+      # We want ot support multiple values separated by a char
+      # This pattern enforces that:
+      # - the values are either 'rust', 'python', 'docker' or 'other tek'
+      # - multiple occurrences are allowed (but they need to be separated by the plus sign (+) )
+      # - blanks in the values (like for 'other tek') need to be escaped by an antislash
+      #
+      # /!\ This patterns allows an empty value
+      #
+      # /!\ we have to better way to express it than to replicate the pattern
+      # e.g. : ^(rust|python|docker|other\ tek)?(\+(rust|python|docker|other\ tek))*$
       constraints:
-        pattern: ^(rust|python|docker|other\ tek)?(\|(rust|python|docker|other\ tek))*$
+        pattern: ^(rust|python|docker|other\ tek)?(\+(rust|python|docker|other\ tek))*$
     - name: comment
       type: string
     - name: review
       type: string
-    
+      # This field to test how to express constraints on tags that contain special chars
+    - name: complex_tags_values
+      type: string
+      # Allowed values 
+      # - 'Information System | Global Inventory' => escaped as 'Information\ System\ \|\ Global\ Inventory'
+      # - Request (http) => escaped as 'Request\ \(http\)'
+      # - CPU - RAM - I/O Capacity => escaped as 'CPU - RAM - I/O Capacity'
+      # - Open-Source (Apache 2.0) => escaped as 'Open-Source\ \(Apache\ 2.0\)'
+      # - Closed Source / Commercial => escaped as 'Closed\ Source\ /\ Commercial'
+      #
+      # /!\ This patterns allows an empty value
+      constraints:
+        pattern: ^(Information\ System\ \|\ Global\ Inventory|Request\ \(http\)|CPU - RAM - I/O Capacity|Open-Source\ \(Apache\ 2.0\)|Closed\ Source\ /\ Commercial)?(\+(Information\ System\ \|\ Global\ Inventory|Request\ \(http\)|CPU - RAM - I/O Capacity|Open-Source\ \(Apache\ 2.0\)|Closed\ Source\ /\ Commercial))*$

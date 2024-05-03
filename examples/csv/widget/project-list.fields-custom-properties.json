@@ -17,7 +17,7 @@
     {
       "name": "languages",
       "subtype": "tags",
-      "tagSeparator": "|"
+      "tagSeparator": "+"
     },
     {
       "name": "comment",
@@ -32,6 +32,11 @@
       "name": "review",
       "subtype": "longtext",
       "maxLength": 250
+    },
+    {
+      "name": "complex_tags_values",
+      "subtype": "tags",
+      "tagSeparator": "+"
     }
   ]
 }
