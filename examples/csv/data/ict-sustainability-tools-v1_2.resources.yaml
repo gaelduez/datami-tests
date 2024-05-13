@@ -1,0 +1,186 @@
+name: ict-sustainability-tools
+type: table
+path: ict-sustainability-tools.csv
+scheme: file
+format: csv
+mediatype : text/csv
+encoding: utf-8
+schema:
+#current comments are from the data dictionnary v1.2 - May 13th 2024. Please check for more recent updates on https://wiki.boavizta.org/doc/data-dictionnary-of-the-it-sustainability-tools-repository-v12-last-update-may-13th-2024-EjvxYfzFvr  
+  fields:
+    - name: tool_name
+    #The tool must have a well identified name and not being just an item in the menu of a bigger tool (e.g. not the “sustainability check” option in a development tool)
+      type: string
+    - name: organization
+    #The legal entity having the intellectual property of the tool. 
+      type: string
+    - name: website
+    #The tool must have a dedicated web page (landing page, github repo, etc.) describing its functionnalities, its licencing, etc. Required format is a URL.
+      type: uri
+    - name: sub_module
+    #If a tool has multiple modules based on different models and/or data entry point, several lines can be inserted for the same tool. Both the fields “Tool name” and “Organization” must have exact same values between the different sub-modules. 
+      type: string
+    - name: environmental_indicator
+    #Which environmental indicators are provided by the tool.
+      type: string
+      constraints:
+      constraints:
+        pattern: ^(ADPf|ADPe|GWP|Final Energy|Primary Energy|Product Environmental Footprint Score|Water Depletion|Not Applicable|To Be Qualified)?(\|(ADPf|ADPe|GWP|Final Energy|Primary Energy|Product Environmental Footprint Score|Water Depletion|Not Applicable|To Be Qualified))*$
+    - name: quick_description
+    #Ideally it should be the description provided by the owner of the tool. 
+      type: string
+    - name: assessment_type
+    #What is the main purpose of the tool: Best practices (assessing some functional units against industry best practices without any intention to measure or evaluate footprint), Evaluation (assessing some functional units using a model to estimate an environmental indicator), Measure (collecting the value of an environmental indicator for some functional units) 
+      type: string
+      constraints:
+        pattern: ^(Measure|Evaluation|Best Practices|Not Applicable|To Be Qualified)?(\|(Measure|Evaluation|Best Practices|Not Applicable|To Be Qualified))*$
+    - name: main_perimeter
+    #What is the general scope covered by the tool. Several values are possible but one should be chosen as the primary one for visual classification purpose.
+      type: string
+      constraints:
+        enum:
+        - Global | Information System
+        - Global | Digital Advertising        
+        - Infra | Datacenter   
+        - Infra | Cloud 
+        - Infra | Network    
+        - Equipment | End-user Devices
+        - Equipment | IoT        
+        - Equipment | Industrial equipment            
+        - Software | Development tools 
+        - Software | CI/CD 
+        - Software | Backend 
+        - Software | API 
+        - Software | Mobile Apps 
+        - Software | Web Apps 
+        - Software | Web Content 
+        - Global | Digital Workspace               
+        - To Be Qualified        
+    - name: other_perimeters
+    #What is the general scope covered by the tool. Several values are possible but one should be chosen as the primary one for visual classification purpose.
+      type: string
+      constraints:
+        enum:
+        - Information System | Global Inventory
+        - Information System | Digital Advertising Software        
+        - Information System | Digital Workspace Software               
+        - Infra | Datacenter   
+        - Infra | Cloud 
+        - Infra | Network    
+        - Equipment | End-user Devices
+        - Equipment | IoT        
+        - Equipment | Industrial equipment            
+        - Software Development | Development tools 
+        - Software Development | CI/CD 
+        - Software Development | Backend 
+        - Software Development | API 
+        - Software Development | Mobile Apps 
+        - Software Development | Web Apps 
+        - Software Development | Web Content 
+        - To Be Qualified        
+    - name: assessed_functional_unit
+    #Which granularity of a digital service or an information system can be assessed with the tool (it does not include the data used as entry point which are covered in the field [data_entry_point]): 
+      type: string
+      constraints:
+        pattern: ^(Process (System)|Application|Team|Project|User|Request (http)|Feature|User Story|Machine|Room|Website|Network Traffic|To Be Qualified)?(\|(Process (System)|Application|Team|Project|User|Request (http)|Feature|User Story|Machine|Room|Website|Network Traffic|To Be Qualified))*$
+    - name: data_entry_point
+    #List all the data used to produce the environmental indicators. 
+      type: string
+      constraints:
+        enum:
+        - Server plan
+        - CPU based (RAPL)
+        - CPU, RAM, I/O (raw)
+        - Bandwidth
+        - DOM Size
+        - Request Number
+        - User Journey Modelisation
+        - User localization
+        - Datacenter Localization
+        - Connexion type
+        - PUE
+        - WUE
+        - Mutualization rate
+        - Devices Inventory (both internal and external users of an application)
+        - CPU capacity
+        - RAM capacity
+        - CPU - RAM - I/O Capacity
+        - Traffic/Usage
+        - Undisclosed
+        - To Be Qualified 
+    - name: life_cycle_steps
+    #Qualify which steps of a Life Cycle Assessment are tracked. Minimum coverage is usually “usage” when only the energy consumed during the use phase is taken into consideration. This field enables also to qualify the scope(s) being covered for the GWP indicator (GHG emissions in CO2e). Usual steps of an ISO 14040:2006 LCA are eligible.
+      type: string
+      constraints:
+        pattern: ^(Extraction|Manufacturing|Transport|Usage|End of life|Not Applicable|Undisclosed|To Be Qualified)?(\|(Extraction|Manufacturing|Transport|Usage|End of life|Not Applicable|Undisclosed|To Be Qualified))*$
+    - name: focus
+    #The information can be provided by the organization itself or assessed by Boavizta team. This field describe the main goals of the tool.  These fields are for classification purpose. 
+      type: string
+      constraints:
+        pattern: ^(Reporting|Calculation|Awareness|Eco-design|Data\ Collection|To Be Qualified)?(\|(Reporting|Calculation|Awareness|Eco-design|Data\ Collection|To Be Qualified))*$
+    - name: licence
+    #Describe the legal environment of the intellectual property of the tool. 
+      type: string
+      constraints:  
+        enum:
+        - Open-Source (Apache 2.0) 
+        - Open-Source (AGPLv3) 
+        - Open-Source (GPLv2) 
+        - Open-Source (GPLv3) 
+        - Open-Source (BSD-3) 
+        - Open-Source (MIT)
+        - Open-Source (Unkown) 
+        - Creative Commons (CC-BY-NC-ND)  
+        - Creative Commons (CC-BY)  
+        - Closed Source / Commercial  
+        - Business Source (non permissive licence) 
+        - To Be Qualified         
+    - name: self_hostable
+    #Can the tool be self-hosted or is it only a SaaS solution?
+      type: string
+      constraints:
+        enum:
+        - Yes
+        - No
+        - Not Applicable
+        - To Be Qualified 
+    - name: originating_country
+    # Where the legal entity owning the intellectual property of the tool is legally based. Value should be of ISO 3166-1 alpha-3 format
+      type: string
+    - name: logo
+      type: uri
+    - name: inside_models
+    #Main models being used for the evaluation. This field requires “Assessment Type = Evaluation”. The possible values of this field are linked to the Models table listing existing models and their main academic references [NDR Once the repository will have been migrated from NocoDB to its final platform).
+      type: string
+      constraints:
+        pattern: ^(CO2.js|Sustainable Web Design|RAPL|SimpleModel|OneByte|GreenFrame|EcoIndex|Lighthouse|Cloud Jewels|Negaoctet|Undisclosed|To Be Qualified)?(\|(CO2.js|Sustainable Web Design|RAPL|SimpleModel|OneByte|GreenFrame|EcoIndex|Lighthouse|Cloud Jewels|Negaoctet|Undisclosed|To Be Qualified))*$
+    - name: methodology_transparency
+    #To which audience is disclosed the following information: inside model, main data sources and main scientific sources 
+      type: string
+      constraints:
+        enum:
+        - Undisclosed
+        - Disclosed only to internal stakeholders or clients 
+        - Disclosed to a scientific panel who shared the results 
+        - Disclosed to a scientific panel who did not share the results 
+        - Fully Disclosed
+        - To Be Qualified        
+    - name: status
+    #Described where the recording stands in the listing process (single value)
+      type: string
+      constraints:
+        enum:
+        - Submitted
+        - Draft 
+        - To be reviewed in Working Group
+        - Boavizta Reviewed 
+        - Published
+        - Not to be listed 
+    - name: comment
+    #only for keeping the history of older comments in former nocodb database
+      type: string
+    - name: ref_sources
+    #Must be URL with a path separated by comma. A list of the references supporting the claims about the tool made in this table (blog articles, scientific paper, white paper, presentation, webinar, etc.). The scientific paper linked to the model(s) used are optional because they are listed in the Model table. 
+      type: string
+      constraints:
+        pattern: ^(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z0-9]{2,}(\.[a-zA-Z0-9]{2,})(\.[a-zA-Z0-9]{2,})?\/[a-zA-Z0-9]{2,})?(\,| (https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z0-9]{2,}(\.[a-zA-Z0-9]{2,})(\.[a-zA-Z0-9]{2,})?\/[a-zA-Z0-9]{2,}))*$ #must be URL with a path separated by comma
